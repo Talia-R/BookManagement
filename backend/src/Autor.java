@@ -4,12 +4,19 @@ public class Autor {
     private String nome;
     private String nacionalidade;
 
-    public Autor(String nome, String nac){
-        if(!eSoTexto(nome) || !eSoTexto(nac)){
+    public Autor(String nome){
+        if(!eSoTexto(nome)){
             throw new IllegalArgumentException("Deve conter apenas letras e mais que 2 caracter");
         }
-
         this.nome = nome;
+    }
+
+
+    public Autor(String nome, String nac){
+        this(nome);
+        if(!eSoTexto(nac)){
+            throw new IllegalArgumentException("Deve conter apenas letras e mais que 2 caracter");
+        }
         nacionalidade = nac;
     }
 
