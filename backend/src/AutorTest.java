@@ -10,14 +10,11 @@ import org.junit.jupiter.api.Test;
 public class AutorTest {
     private LinkedList<Autor> todosAutores;
     private Autor novoAutor;
-    private Autor novoAutorNomeIncorreto;
     @BeforeEach
     void setup(){
         todosAutores = new LinkedList<>();
         novoAutor = new Autor("Alycia Carvalho", "Brasileira");
-        novoAutorNomeIncorreto = new Autor("Alycia Car123lho", "Brasileira");
         todosAutores.add(novoAutor);
-        todosAutores.add(novoAutorNomeIncorreto);
     }
 
     @Test
