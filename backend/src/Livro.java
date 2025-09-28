@@ -1,10 +1,12 @@
 public class Livro {
-    private int id_ISBN;
+    private int id;
+    private int ultimoLivro;
 
     private String nome;
     private Autor autor;
     private int totalPaginas;
-    private EStatus status;
+    private int paginasLidas;
+    private String status;
 
     public Livro(String nome, int totalPaginas){
         if(nome == null || nome.trim().length() < 2){
@@ -15,13 +17,31 @@ public class Livro {
         }
         this.nome = nome;
         this.totalPaginas = totalPaginas;
+        id = +ultimoLivro;
     }
 
-    public Livro(String nome, int totalPaginas, Autor autor, EStatus status){
+    public Livro(String nome, int totalPaginas, int paginasLidas){
         this(nome, totalPaginas);
-        this.autor = autor;
-        this.status = status;
+        if(paginasLidas < 0 || paginasLidas > totalPaginas){
+            throw new IllegalArgumentException("O total de páginas lidas deve ser maior que zero e menor que o total de páginas do livro.");
+        }
+        this.paginasLidas = paginasLidas;
+        setarStatus();
     }
 
+    public Livro(String nome, int totalPaginas, Autor autor, int paginasLidas){
+        this(nome, totalPaginas, paginasLidas);
+        this.autor = autor;
+    }
+
+    private void setarStatus(){
+        String statusAtual = EStatus.nãoLido.getDescricao();
+        if(paginasLidas == totalPaginas){
+            statusAtual = EStatus.lido.getDescricao();
+        } else if(paginasLidas > 0){
+            statusAtual = EStatus.iniciado.getDescricao();
+        }
+        this.status = statusAtual;
+    }
 
 }
