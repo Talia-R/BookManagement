@@ -1,9 +1,21 @@
+package com.managment.book.Model;
+
 import java.util.LinkedList;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Autor {
     private String nome;
     private String nacionalidade;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    public Autor(){}
     public Autor(String nome){
         if(!eSoTexto(nome)){
             throw new IllegalArgumentException("Deve conter apenas letras e mais que 2 caracter");

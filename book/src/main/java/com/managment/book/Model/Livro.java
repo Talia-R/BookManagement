@@ -1,14 +1,30 @@
+package com.managment.book.Model;
+
 import java.util.LinkedList;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+@Entity
 public class Livro {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int ultimoLivro;
 
     private String nome;
+
+    @OneToOne
     private Autor autor;
     private int totalPaginas;
     private int paginasLidas;
     private String status;
+
+    public Livro(){}
 
     public Livro(String nome, int totalPaginas){
         if(nome == null || nome.trim().length() < 2){
