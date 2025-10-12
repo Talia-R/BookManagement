@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class Livro {
     private int id;
     private int ultimoLivro;
@@ -45,6 +43,15 @@ public class Livro {
             statusAtual = EStatus.iniciado.getDescricao();
         }
         this.status = statusAtual;
+    }
+
+    public String getStatus(){
+        return status;
+    }
+
+    public int mudarNumeroPaginas(int novaQntPaginas){
+        this.totalPaginas = novaQntPaginas;
+        return totalPaginas;
     }
 
     public String relatorio(){
