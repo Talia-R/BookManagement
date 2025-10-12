@@ -49,7 +49,8 @@ public class Autor {
      *  'Nome Autor, Nacionalidade'.
      * @return string formata com o nome de um autor e sua nacionalidade
      */
-    public String relatorio(){
+    @Override
+    public String toString(){
         StringBuilder s = new StringBuilder(String.format("%s", nome));
         if(nacionalidade != null)
             s.append(", " + nacionalidade);

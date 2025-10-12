@@ -29,6 +29,6 @@ public class AutorTest {
     @Test
     public void formatarNomeENacCorretamente(){
         String resultado = "Alycia Carvalho, Brasileira";
-        assertEquals(resultado, novoAutor.relatorio());
+        assertEquals(resultado, novoAutor.toString());
     }
 }
