@@ -49,16 +49,27 @@ public class Livro {
         return status;
     }
 
+    public Autor getAutor(){
+        return autor;
+    }
+
     public int mudarNumeroPaginas(int novaQntPaginas){
         this.totalPaginas = novaQntPaginas;
         return totalPaginas;
     }
 
-    public String relatorio(){
+    /**
+     * Retorna uma string no formato: 
+     * 1) NomeLivro - QntPaginas.
+     * 2) NomeLivro - QntPaginas by Autor.
+     * 3) NomeLivro - QntPaginas by Autor | statusLeitura.
+     */
+    @Override
+    public String toString(){
         StringBuilder s = new StringBuilder(String.format("%s - %s páginas.", nome, totalPaginas));
 
         if(autor != null){
-            s.append("\nBy: " + autor.relatorio());
+            s.append("\nBy: " + autor.toString());
         }
         if(paginasLidas >= 0){
             s.append(" | " + status);
