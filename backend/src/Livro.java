@@ -60,20 +60,4 @@ public class Livro {
         return s.toString();
     }
 
-    public static String adicionarLivro(Livro livroNovo, LinkedList<Livro> todosOsLivros){
-        todosOsLivros.add(livroNovo);
-        return livroNovo.relatorio();
-    }
-
-    public static String acumularTodosLivros(LinkedList<Livro> todosOsLivros){
-        StringBuilder s = new StringBuilder();
-        int totalLivros = 0;
-        for(Livro livro : todosOsLivros){
-            s.append(++totalLivros + ") ");
-            s.append(livro.relatorio());
-            s.append("\n" + "-".repeat(10) + "\n");
-        }
-        return s.toString();
-    }
-
 }
